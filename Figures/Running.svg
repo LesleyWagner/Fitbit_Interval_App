@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="Running.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.72337262"
+     inkscape:cx="106.44583"
+     inkscape:cy="340.7649"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1183" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Layer 2">
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke-width:0.245787"
+       id="rect1460"
+       width="120"
+       height="120"
+       x="30.244621"
+       y="43.160095"
+       inkscape:export-filename="C:\Users\lesle\OneDrive\Documenten\Projects\Fitbit_Interval_Training\Figures\Running.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g193"
+       transform="matrix(0.26458333,0,0,0.26458333,21.528756,36.358265)"
+       inkscape:export-filename="C:\Users\lesle\OneDrive\Documenten\Projects\Fitbit_Interval_Training\Figures\Running.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g1183"
+         inkscape:export-filename="C:\Users\lesle\OneDrive\Documenten\Projects\Fitbit_Interval_Training\Figures\Running.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96">
+        <path
+           fill="var(--ci-primary-color, currentColor)"
+           d="m 353.415,200 -30.981,-57.855 -60.717,-20.239 -0.14,0.432 L 167.21,149.3 A 32.133,32.133 0 0 0 144,180.068 V 264 h 32 v -83.931 l 73.6,-21.028 -32.512,99.633 -0.155,-0.056 -29.464,82.5 a 16.088,16.088 0 0 1 -20.127,9.8 l -66.282,-22.097 -10.12,30.358 66.282,22.093 A 48,48 0 0 0 217.6,351.881 l 24.232,-67.849 17.173,5.6 48.3,48.3 A 15.9,15.9 0 0 1 312,349.255 V 456 h 32 V 349.255 a 47.694,47.694 0 0 0 -14.059,-33.942 l -48.265,-48.264 26.783,-82.077 19.269,34.683 A 24.011,24.011 0 0 0 348.707,232 H 432 v -32 z"
+           class="ci-primary"
+           id="path181"
+           style="fill:#ffffff;fill-opacity:1"
+           inkscape:export-filename="C:\Users\lesle\OneDrive\Documenten\Projects\Fitbit_Interval_Training\Figures\Running.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <path
+           fill="var(--ci-primary-color, currentColor)"
+           d="m 286.828,109.707 a 36,36 0 1 0 -12.916,-27.619 35.851,35.851 0 0 0 12.916,27.619 z"
+           class="ci-primary"
+           id="path183"
+           style="fill:#ffffff;fill-opacity:1"
+           inkscape:export-filename="C:\Users\lesle\OneDrive\Documenten\Projects\Fitbit_Interval_Training\Figures\Running.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+      </g>
+    </g>
+  </g>
+</svg>

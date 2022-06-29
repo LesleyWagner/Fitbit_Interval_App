@@ -1,0 +1,59 @@
+<svg>
+  <defs>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="import" href="/mnt/sysassets/system_widget.defs" />
+    <link rel="import" href="/mnt/sysassets/widgets/text_button.defs" />
+    <link rel="import" href="/mnt/sysassets/widgets/baseview_widget.defs" />
+    <link rel="import" href="/mnt/sysassets/widgets/scrollbar.defs" />
+    <link rel="import" href="/mnt/sysassets/widgets/tile_list_widget.defs" />
+    <link rel="import" href="/mnt/sysassets/widgets/scrollview_widget.defs" />
+    
+    <symbol id="intervalHeader" href="#tile-list-header" class="list-item-header">
+      <text id="text" />
+      <rect class="line" />
+    </symbol>
+    
+    <symbol id="intervalFooter" href="#tile-list-footer" class="list-item-footer">
+<!--       <text id="text" layer="2" y="0%" height="60%"/>
+      <rect id="touch" pointer-events="all" layer="2"/>
+      <rect x="0" y="0" width="100%" height="100%" fill="#000000" layer="1"/>
+      <rect x="0" y="60%" width="100%" height="40%" fill="#000000" layer="2"/> -->
+      <use id="startWorkoutBtn" href="#text-button" class="text-button application-fill">
+        <set href="#text" attributeName="text-buffer" to="Start Workout" />
+      </use>
+    </symbol>
+
+    <symbol id="intervalItem" href="#tile-list-item" class="list-item">
+      <text id="text" layer="2"/>
+      <rect class="line" layer="2"/>
+      <rect id="touch" pointer-events="all" layer="2"/>
+      <rect x="0" y="0" width="100%" height="100%" fill="#000000" layer="1"/>
+    </symbol>
+    
+    <symbol id="workoutHeader" href="#tile-list-header" class="list-item-header">
+      <text id="text" />
+      <rect class="line" />
+    </symbol>
+
+    <symbol id="workoutItem" href="#tile-list-item" class="list-item" display="none">
+      <text id="text" layer="2"/>
+      <rect class="line" layer="2"/>
+      <rect id="touch" pointer-events="all" layer="2"/>
+      <rect x="0" y="0" width="100%" height="100%" fill="#000000" layer="1"/>
+    </symbol>
+
+    <symbol id="subview-clock">
+      <text id="lblClock" />
+    </symbol>
+
+    <symbol id="subview-gps">
+      <text id="text-gps">GPS connecting...</text>
+      <image id="icon-gps" />
+    </symbol>
+
+    <symbol id="subview-hrm">
+      <text id="lblHrm" class="bignumber">--</text>
+      <text class="label">heart rate</text>
+    </symbol>
+  </defs>
+</svg>

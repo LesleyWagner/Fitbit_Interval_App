@@ -1,0 +1,31 @@
+<svg>
+  <rect x="0" y="0" width="100%" height="100%" fill="#000000" />
+  <text id="currentWorkout" text-anchor="middle" x="50%" y="15%" width="100%" layer="1" text-length="20"/> 
+  <text id="category" x="10%" y="35%" text-length="20" layer="1" display="inline"/>
+  <image id="runningImg" x="50%" y="25%" width="40" height="40" layer="1" href="../images/Running.png" fill="#FFFFFF" opacity="1" display="none"/>
+  <image id="cyclingImg" x="50%" y="25%" width="50" height="50" layer="1" href="../images/Cycling.png" fill="#FFFFFF" opacity="1" display="none"/>
+  <use id="intervalList" href="#tile-list" class="horizontal-pad" y="40%">
+    <use href="#intervalItem" id="interval0"/>
+    <use href="#intervalItem" id="interval1"/>
+    <use href="#intervalItem" id="interval2"/>
+    <use href="#intervalItem" id="interval3"/>
+    <use href="#intervalItem" id="interval4"/>
+    <use href="#intervalItem" id="interval5"/>
+    <use href="#intervalItem" id="interval6"/>
+    <use href="#intervalItem" id="interval7"/>
+    <use href="#intervalItem" id="interval8"/>
+    <use href="#intervalItem" id="interval9"/>
+    <use href="#intervalItem" id="interval10"/>
+    <use href="#intervalItem" id="interval11"/>
+    <use href="#intervalItem" id="interval12"/>
+    <use href="#intervalItem" id="interval13"/>
+    <use href="#intervalItem" id="interval14"/>
+    <use href="#intervalItem" id="interval15"/>
+    <use href="#intervalItem" id="interval16"/>
+    <use href="#intervalItem" id="interval17"/>
+    <use href="#intervalItem" id="interval18"/>
+    <use href="#intervalItem" id="interval19"/>
+    <use href="#intervalFooter"/>
+  </use>
+  <use id="view-gps" href="#subview-gps" display="none"/>
+</svg>

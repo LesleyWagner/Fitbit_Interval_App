@@ -1,0 +1,29 @@
+{
+  "devDependencies": {
+    "@fitbit/sdk": "~6.0.0"
+  },
+  "fitbit": {
+    "appUUID": "4f9e617d-3dd6-44f8-ab4d-22a511e5a15a",
+    "appType": "app",
+    "appDisplayName": "Interval App",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#e91e63",
+    "requestedPermissions": [
+      "access_heart_rate",
+      "access_location",
+      "run_background",
+      "access_internet",
+      "access_exercise"
+    ],
+    "buildTargets": [
+      "atlas",
+      "vulcan"
+    ],
+    "i18n": {
+      "en-US": {
+        "name": "Interval App"
+      }
+    },
+    "defaultLanguage": "en-US"
+  }
+}

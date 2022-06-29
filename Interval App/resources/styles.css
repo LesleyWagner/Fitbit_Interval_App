@@ -1,0 +1,131 @@
+.application-fill           { fill: fb-green; }
+.foreground-fill            { fill: fb-white; }
+.background-fill            { fill: fb-black; }
+
+.sensor-label {
+  font-family: System-Regular;
+  fill: white;
+  text-anchor: middle;
+  text-length: 32;
+  font-size: 20;
+  x: 50%;
+  y: $+5;
+}
+
+.sensor-data {
+  font-family: System-Light;
+  fill: yellow;
+  text-anchor: middle;
+  text-length: 64;
+  font-size: 20;
+  x: 50%;
+  y: $;
+}
+
+.list-item {
+  height: 112;
+}
+
+.list-item text {
+  fill: "white";
+  x: 50%;
+  text-anchor: middle;
+  font-size: 24;
+  text-length: 20;
+}
+
+.list-item-footer {
+  height: 80%;
+}
+
+.list-item-footer text {
+  fill: "white";
+  x: 50%;
+  text-anchor: middle;
+  font-size: 24;
+  text-length: 20;
+}
+
+.startWorkoutBtn {
+  
+}
+
+.line {
+  height: 6;
+  width: 100%;
+  fill: #222222;
+  y: 100%-6;
+}
+
+#touch {
+  width: 100%;
+  height: 100%-6;
+  x: 0;
+  y: 0;
+  opacity: 0;
+}
+
+.header text {
+  font-weight: bold;
+  fill: fb-cyan;
+  font-size: 30;
+}
+
+text {
+  font-family: System-Regular;
+  font-size: 30;
+  font-weight: bold;
+  text-anchor: start;
+  fill: white;
+}
+
+#icon-gps {
+  href: "images/icons/icn_status_gps.png";
+  x: 8;
+  y: 8;
+  width: 32;
+  height: 32;
+  fill: "fb-orange";
+}
+
+#lblClock {
+  x: 50%;
+  y: 32;
+  font-size: 28;
+  text-length: 8;
+  text-anchor: middle;
+}
+
+.bignumber {
+  font-size: 120;
+  font-family: System-Light;
+  fill: fb-yellow;
+  x: -4;
+  y: 84;
+  height: 110;
+  text-length: 20;
+}
+
+.label {
+  font-size: 30;
+  fill: fb-yellow;
+  text-length: 66;
+}
+
+.item .label {
+  y: $-80;
+}
+
+#subview-hrm .label {
+  y: $-80;
+}
+
+#btnLeft #text {
+  text-buffer: "LEFT";
+  text-anchor: middle;
+}
+
+#btnRight #text {
+  text-buffer: "RIGHT";
+  text-anchor: middle;
+}

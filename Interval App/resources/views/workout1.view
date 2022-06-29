@@ -1,0 +1,35 @@
+<svg>
+  <rect x="0" y="0" width="100%" height="100%" fill="#000000" layer="0"/>
+  <use href="#scrollview">
+    <use href="#scrollview-item" display="flexible-height">
+      <text id="currentWorkout" text-anchor="middle" width="100%" text-length="20" layer="1"/> 
+<!--       <text id="category" x="0%" y="40%" text-length="20" layer="0" display="inline"/>
+      <image id="runningImg" x="40%" y="30%" width="40" height="40" href="../images/Running.png" fill="#FFFFFF" opacity="1" display="none"/>
+      <image id="cyclingImg" x="40%" y="30%" width="50" height="50" href="../images/Cycling.png" fill="#FFFFFF" opacity="1" display="none"/> -->
+    </use>
+    <use href="#scrollview-item" display="flexible-height">
+      <use id="intervalList" href="#tile-list" class="horizontal-pad" layer="2">
+        <var id="virtual" value="1" />
+        <var id="reorder-enabled" value="0" />
+        <var id="peek-enabled" value="0" />
+        <var id="separator-height-bottom" value="2" />
+        <use id="intervalPool" href="#tile-list-pool">
+          <use id="intervalPool[0]" href="#intervalItem" />
+          <use id="intervalPool[1]" href="#intervalItem" />
+          <use id="intervalPool[2]" href="#intervalItem" />
+          <use id="intervalPool[3]" href="#intervalItem" />
+          <use id="intervalPool[4]" href="#intervalItem" />
+          <use id="intervalPool[5]" href="#intervalItem" />
+          <use id="intervalPool[6]" href="#intervalItem" />
+          <use id="intervalPool[7]" href="#intervalItem" />
+          <use id="intervalPool[8]" href="#intervalItem" />
+          <use id="intervalPool[9]" href="#intervalItem" />
+          <use id="intervalPool[10]" href="#intervalItem" />
+        </use>
+      </use>
+    </use>
+  </use>
+  <use href="#intervalFooter" id="startWorkoutBtn" y="80%" height="20%" width="100%">
+    <set href="#text" attributeName="text-buffer" to="Start workout" />
+  </use>
+</svg>
