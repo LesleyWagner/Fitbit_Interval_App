@@ -1,6 +1,6 @@
 import document from "document";
 import { geolocation } from "geolocation";
-import {Interval, IntervalType} from "./lib/interval";
+import {Interval, IntervalType} from "../lib/interval";
 import clock from "clock";
 
 let intervals;

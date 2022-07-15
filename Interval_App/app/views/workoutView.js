@@ -1,8 +1,8 @@
 import document from "document";
 import { geolocation } from "geolocation";
-import * as exercising from ".././views/exercising";
-import {Workout, WorkoutType} from "./lib/workout";
-import {Interval, IntervalType} from "./lib/interval";
+import * as exercising from "./exercising";
+import {Workout, WorkoutType} from "../lib/workout";
+import {Interval, IntervalType} from "../lib/interval";
 
 let thisWorkout;
 
