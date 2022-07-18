@@ -14,7 +14,7 @@ let intervalStart;
 let totalTime = 0;
 let totalDistance = 0; // total distance in m
 let intervalValue = 0; // time in ms or distance in m or calories in cal
-let prevCoords;
+let prevCoords = undefined;
 let currentCoords;
 
 /**
@@ -26,24 +26,24 @@ export function update() {
   document.getElementById("intervalTarget").text = interval.value.toString() + " " + interval.unit;
   
   clock.addEventListener("tick", (evt) => {
-  if (durationText === undefined) {
-    return;
-  }
-
-  totalTime = evt.date - sessionStart;
-  const secs = Math.floor((now / 1000) % 60);
-  const mins = Math.floor((now / 60000) % 60);
-  const hours = Math.floor(now / 3600000);
-  durationText.text = [`0${hours}`.slice(-2), `0${mins}`.slice(-2), `0${secs}`.slice(-2)].join(':');
-    
-  if (interval.intervalType === IntervalType.TIME) {
-    intervalTime = evt.date - intervalStart;
-    document.getElementById("currentValue").text = (intervalTime/1000).toString() + " s";
-    if (intervalTime >= interval.value) {
-      intervalCompleted();
+    if (durationText === undefined) {
+      return;
     }
-  }
-});
+
+    totalTime = evt.date - sessionStart;
+    const secs = Math.floor((totalTime / 1000) % 60);
+    const mins = Math.floor((totalTime / 60000) % 60);
+    const hours = Math.floor(totalTime / 3600000);
+    durationText.text = [`0${hours}`.slice(-2), `0${mins}`.slice(-2), `0${secs}`.slice(-2)].join(':');
+      
+    if (interval.intervalType === IntervalType.TIME) {
+      intervalValue = Math.floor((evt.date - intervalStart) / 1000);
+      document.getElementById("currentValue").text = intervalValue + " s";
+      if (intervalValue >= interval.value) {
+        intervalCompleted();
+      }
+    }
+  });
   
   // start continuously monitor gps
   var watchID = geolocation.watchPosition(newCoords, gpsFailed, { timeout: 60 * 1000 });
@@ -55,7 +55,7 @@ export function update() {
 export function init(theIntervals) {
   intervals = theIntervals;
   console.log("exercising view clicked"); 
-  sessionStart = new Date();
+  sessionStart = Date.now();
   clock.granularity = "seconds";
   
   return document.location.assign('exercising.view');
@@ -69,32 +69,37 @@ function newCoords(position) {
     "Latitude: " + position.coords.latitude,
     "Longitude: " + position.coords.longitude
   );
-  prevCoords = currentCoords;
-  currentCoords = position.coords;
-  
-  // calculate travelled distance
-  const R = 6371e3; // metres
-  const CRAD = Math.PI/180; // constant that converts variable from degrees to radians
-  const φ1 = prevCoords.latitude * CRAD; // φ, λ in radians
-  const φ2 = currentCoords.latitude * CRAD;
-  const Δφ = (currentCoords.latitude-prevCoords.latitude) * CRAD;
-  const Δλ = (currentCoords.longitude-prevCoords.longitude) * CRAD;
-  const sqrtHavsinΔφ = Math.sin(Δφ/2);
-  const sqrtHavsinΔλ = Math.sin(Δλ/2);
 
-  const a = sqrtHavsinΔφ * sqrtHavsinΔφ + Math.cos(φ1) * Math.cos(φ2) *
-            sqrtHavsinΔλ * sqrtHavsinΔλ;
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  if (prevCoords === undefined) {
+    prevCoords = position.coords;
+  }
+  else {
+    currentCoords = position.coords;
+    // calculate travelled distance
+    const R = 6371e3; // metres
+    const CRAD = Math.PI/180; // constant that converts variable from degrees to radians
+    const φ1 = prevCoords.latitude * CRAD; // φ, λ in radians
+    const φ2 = currentCoords.latitude * CRAD;
+    const Δφ = (currentCoords.latitude-prevCoords.latitude) * CRAD;
+    const Δλ = (currentCoords.longitude-prevCoords.longitude) * CRAD;
+    const sqrtHavsinΔφ = Math.sin(Δφ/2);
+    const sqrtHavsinΔλ = Math.sin(Δλ/2);
 
-  const d = R * c; // in meters
-  totalDistance += d;
-  
-  if (interval.intervalType === IntervalType.DISTANCE) {
-    intervalValue += d;
-    document.getElementById("currentValue").text = (intervalValue).toString() + " m";
-    if (intervalValue >= interval.value) {
-      intervalCompleted();
+    const a = sqrtHavsinΔφ * sqrtHavsinΔφ + Math.cos(φ1) * Math.cos(φ2) *
+              sqrtHavsinΔλ * sqrtHavsinΔλ;
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+    const d = R * c; // in meters
+    totalDistance += d;
+    
+    if (interval.intervalType === IntervalType.DISTANCE) {
+      intervalValue += d;
+      document.getElementById("currentValue").text = intervalValue.toFixed(0) + " m";
+      if (intervalValue >= interval.value) {
+        intervalCompleted();
+      }
     }
+    prevCoords = currentCoords;
   }
 }
 
@@ -111,10 +116,21 @@ function intervalCompleted() {
   else {
     // show interval completed screen
     update();
-    interval = intervals[index];
-    document.getElementById("intervalTarget").text = interval.value.toString() + " " + interval.unit;
-    intervalStart = new date();
     intervalValue = 0;
+    intervalStart = Date.now();
+    interval = intervals[index];
+
+    document.getElementById("intervalTarget").text = interval.value.toString() + " " + interval.unit;
+
+    if (interval.intervalType === IntervalType.DISTANCE) {
+      document.getElementById("currentValue").text = 0 + " m";
+    }
+    else if (interval.intervalType === IntervalType.TIME) {
+      document.getElementById("currentValue").text = 0 + " s";
+    }
+    else if (interval.intervalType === IntervalType.CALORIES) {
+      document.getElementById("currentValue").text = 0 + " cal";
+    }
   }  
 }
 
@@ -122,5 +138,6 @@ function intervalCompleted() {
 function workoutFinished() {
   geolocation.clearWatch(watchID);
   clock.granularity = "off";
+  console.log("Workout finished");
   // show workout finished screen
 }
