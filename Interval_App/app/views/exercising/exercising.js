@@ -1,8 +1,12 @@
 import document from "document";
 import { geolocation } from "geolocation";
-import {Interval, IntervalType} from "../lib/interval";
 import clock from "clock";
+import { vibration } from "haptics";
 
+import {Interval, IntervalType} from "../../lib/interval";
+import * as completed from "../completed/completed";
+
+let workout;
 let intervals;
 let index = 0;
 let sessionStart = undefined;
@@ -11,11 +15,17 @@ let durationText = undefined;
 
 let interval;
 let intervalStart;
+let intervalTime = 0;
+let intervalDistance = 0;
+
 let totalTime = 0;
 let totalDistance = 0; // total distance in m
-let intervalValue = 0; // time in ms or distance in m or calories in cal
+
 let prevCoords = undefined;
 let currentCoords;
+
+let workoutData;
+let intervalData;
 
 /**
  * Single view menu entry
@@ -35,11 +45,11 @@ export function update() {
     const mins = Math.floor((totalTime / 60000) % 60);
     const hours = Math.floor(totalTime / 3600000);
     durationText.text = [`0${hours}`.slice(-2), `0${mins}`.slice(-2), `0${secs}`.slice(-2)].join(':');
-      
+    
+    intervalTime = Math.floor((evt.date - intervalStart) / 1000);
     if (interval.intervalType === IntervalType.TIME) {
-      intervalValue = Math.floor((evt.date - intervalStart) / 1000);
-      document.getElementById("currentValue").text = intervalValue + " s";
-      if (intervalValue >= interval.value) {
+      document.getElementById("currentValue").text = intervalTime + " s";
+      if (intervalTime >= interval.value) {
         intervalCompleted();
       }
     }
@@ -52,8 +62,18 @@ export function update() {
   durationText.text = "00:00:00";
 }
 
-export function init(theIntervals) {
+export function init(theWorkout) {
+  workout = theWorkout;
   intervals = theIntervals;
+
+  workoutData = {
+    name: workout.name,
+    type: workout.workoutType,
+    totalTime: 0,
+    totalDistance: 0,
+    intervals: new Array(intervals.length)
+  }
+
   console.log("exercising view clicked"); 
   sessionStart = Date.now();
   clock.granularity = "seconds";
@@ -91,11 +111,11 @@ function newCoords(position) {
 
     const d = R * c; // in meters
     totalDistance += d;
+    intervalDistance += d;
     
     if (interval.intervalType === IntervalType.DISTANCE) {
-      intervalValue += d;
-      document.getElementById("currentValue").text = intervalValue.toFixed(0) + " m";
-      if (intervalValue >= interval.value) {
+      document.getElementById("currentValue").text = intervalDistance.toFixed(0) + " m";
+      if (intervalDistance >= interval.value) {
         intervalCompleted();
       }
     }
@@ -109,14 +129,29 @@ function gpsFailed(error) {
 }
 
 function intervalCompleted() {
+  intervalData = {
+    type: interval.intervalType,
+    unit: interval.unit,
+    target: interval.value,
+    result: 0 // distance in meters if the interval type = time, else it is time in seconds
+  }
+  if (interval.intervalType === IntervalType.TIME) {
+    intervalData.result = intervalDistance;
+  }
+  else {
+    intervalData.result = intervalTime;
+  }
+  workoutData.intervals[index] = intervalData;
+
   index++;
   if (index === intervals.length) {
     workoutFinished();
   }
   else {
     // show interval completed screen
-    update();
-    intervalValue = 0;
+    vibration.start("nudge");
+    intervalTime = 0;
+    intervalDistance = 0;
     intervalStart = Date.now();
     interval = intervals[index];
 
@@ -139,5 +174,11 @@ function workoutFinished() {
   geolocation.clearWatch(watchID);
   clock.granularity = "off";
   console.log("Workout finished");
+  vibration.start("confirmation");  
+  workoutData.totalDistance = totalDistance;
+  workoutData.totalTime = totalTime;
   // show workout finished screen
+  completed.init(workoutData).then(completed.update).catch((err) => {
+    console.error(`Error loading view: ${err.message}`);
+  });
 }

@@ -7,7 +7,7 @@ export const IntervalType = {
 export class Interval {
   intervalType = "IntervalType.DISTANCE;"
   unit = "meters";
-  value = 0; // in ms or meters or calories
+  value = 0; // in seconds, meters or calories
   type = "intervalPool"; // pool type, required for tile list component
 
   constructor() {

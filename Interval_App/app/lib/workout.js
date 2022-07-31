@@ -9,6 +9,7 @@ export class Workout {
   intervals = [];
   type = "workoutPool"; // pool type, required for tile list component
 
+
   constructor() {
   }
 

@@ -1,8 +1,8 @@
 import document from "document";
 import { geolocation } from "geolocation";
-import * as exercising from "./exercising";
-import {Workout, WorkoutType} from "../lib/workout";
-import {Interval, IntervalType} from "../lib/interval";
+import * as exercising from "../exercising/exercising";
+import {Workout, WorkoutType} from "../../lib/workout";
+import {Interval, IntervalType} from "../../lib/interval";
 
 let thisWorkout;
 
@@ -54,7 +54,7 @@ function locationSuccess(position) {
   );
  
   // start exercise
-  exercising.init(intervals).then(exercising.update).catch((err) => {
+  exercising.init(thisWorkout).then(exercising.update).catch((err) => {
     console.error(`Error loading view: ${err.message}`);
   });
 }

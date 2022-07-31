@@ -7,6 +7,7 @@
     <link rel="import" href="/mnt/sysassets/widgets/scrollbar.defs" />
     <link rel="import" href="/mnt/sysassets/widgets/tile_list_widget.defs" />
     <link rel="import" href="/mnt/sysassets/widgets/scrollview_widget.defs" />
+    <link rel="import" href="/mnt/sysassets/widgets/cycleview_widget.defs" />
     
     <symbol id="intervalHeader" href="#tile-list-header" class="list-item-header">
       <text id="text" />
@@ -27,6 +28,30 @@
       <text id="text" layer="2"/>
       <rect class="line" layer="2"/>
       <rect id="touch" pointer-events="all" layer="2"/>
+      <rect x="0" y="0" width="100%" height="100%" fill="#000000" layer="1"/>
+    </symbol>
+
+    <symbol id="completed1Item" href="#tile-list-item" class="list-item"> 
+      <rect class="line" layer="2"/>
+      <section width="50%">
+        <text id="target" layer="2"/>
+      </section>
+      <section width="50%" x="50%">
+        <text id="result" layer="2"/>
+      </section>
+      <rect id="touch" pointer-events="all" layer="2"/>
+      <rect x="0" y="0" width="100%" height="100%" fill="#000000" layer="1"/>
+    </symbol>
+
+    <symbol id="completedItem" href="#cycleview-item" class="cycle-item"> 
+      <rect class="line" layer="2"/>
+      <section width="50%">
+        <text id="target" layer="2"/>
+      </section>
+      <section width="50%" x="50%">
+        <text id="result" layer="2"/>
+      </section>
+      <!-- <rect id="touch" pointer-events="all" layer="2"/> -->
       <rect x="0" y="0" width="100%" height="100%" fill="#000000" layer="1"/>
     </symbol>
     

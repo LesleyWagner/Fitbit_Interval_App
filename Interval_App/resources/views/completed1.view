@@ -1,0 +1,36 @@
+<svg>
+  <rect x="0" y="0" width="100%" height="100%" fill="#000000" />
+  <text id="currentWorkout" text-anchor="middle" x="50%" y="15%" width="100%" layer="1" text-length="20"/> 
+  <text id="category" x="10%" y="35%" text-length="20" layer="1" display="inline"/>
+  <image id="runningImg" x="50%" y="25%" width="40" height="40" layer="1" href="../images/Running.png" fill="#FFFFFF" opacity="1" display="none"/>
+  <image id="cyclingImg" x="50%" y="25%" width="50" height="50" layer="1" href="../images/Cycling.png" fill="#FFFFFF" opacity="1" display="none"/>
+  <use id="discardBtn" href="#text-button" class="text-button application-fill" y="40%" height="20%" width="40%">
+    <set href="#text" attributeName="text-buffer" to="Save" />
+  </use>
+  <use id="saveBtn" href="#text-button" class="text-button application-fill" x="50%" y="40%" height="20%" width="40%">
+    <set href="#text" attributeName="text-buffer" to="Discard" />
+  </use>
+  <use id="intervalList" href="#tile-list" class="horizontal-pad" x="0%" y="60%" width="100%">
+  <var id="reorder-enabled" value="0" />
+    <use href="#completed1Item" id="interval0"/>
+    <use href="#completed1Item" id="interval1"/>
+    <use href="#completed1Item" id="interval2"/>
+    <use href="#completed1Item" id="interval3"/>
+    <use href="#completed1Item" id="interval4"/>
+    <use href="#completed1Item" id="interval5"/>
+    <use href="#completed1Item" id="interval6"/>
+    <use href="#completed1Item" id="interval7"/>
+    <use href="#completed1Item" id="interval8"/>
+    <use href="#completed1Item" id="interval9"/>
+    <use href="#completed1Item" id="interval10"/>
+    <use href="#completed1Item" id="interval11"/>
+    <use href="#completed1Item" id="interval12"/>
+    <use href="#completed1Item" id="interval13"/>
+    <use href="#completed1Item" id="interval14"/>
+    <use href="#completed1Item" id="interval15"/>
+    <use href="#completed1Item" id="interval16"/>
+    <use href="#completed1Item" id="interval17"/>
+    <use href="#completed1Item" id="interval18"/>
+    <use href="#completed1Item" id="interval19"/>
+  </use>
+</svg>

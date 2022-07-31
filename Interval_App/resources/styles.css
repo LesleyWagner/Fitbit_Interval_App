@@ -46,6 +46,14 @@
   text-length: 20;
 }
 
+.cycle-item text {
+  fill: "white";
+  x: 50%;
+  text-anchor: middle;
+  font-size: 24;
+  text-length: 20;
+}
+
 .startWorkoutBtn {
   
 }
